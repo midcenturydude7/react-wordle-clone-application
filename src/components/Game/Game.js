@@ -10,17 +10,9 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guess, setGuess] = React.useState("");
-
-  function handleGuess(e) {
-    e.preventDefault();
-    guess.length === 5 ? console.log({ guess }) : console.log("Guess must be 5 characters long");
-    setGuess("");
-  }
-
   return (
     <>
-      <GuessInput handleGuess={handleGuess} guess={guess} setGuess={setGuess} />
+      <GuessInput />
     </>
   );
 }
