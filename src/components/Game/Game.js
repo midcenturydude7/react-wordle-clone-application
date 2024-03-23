@@ -1,4 +1,5 @@
 import React from "react";
+import GuessInput from "../GuessInput/GuessInput";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
@@ -13,21 +14,13 @@ function Game() {
 
   function handleGuess(e) {
     e.preventDefault();
-    console.log({ guess });
+    guess.length === 5 ? console.log({ guess }) : console.log("Guess must be 5 characters long");
     setGuess("");
   }
 
   return (
     <>
-      <form onSubmit={handleGuess}>
-        <label htmlFor="guess-input">Enter guess:</label>
-        <input
-          id="guess-input"
-          type="text"
-          value={guess}
-          onChange={(e) => setGuess(e.target.value.toUpperCase())}
-        />
-      </form>
+      <GuessInput handleGuess={handleGuess} guess={guess} setGuess={setGuess} />
     </>
   );
 }
